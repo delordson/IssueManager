@@ -1,0 +1,4 @@
+C:\Users\Delordson\Documents\Visual Studio 2013\Projects\BitBucket\IssueManagerApp\IssueManagerApp\IssueManagerApp.HTMLClient\bin\Debug\LSResourceGeneratorsTask.mcs
+C:\Users\Delordson\Documents\Visual Studio 2013\Projects\BitBucket\IssueManagerApp\IssueManagerApp\IssueManagerApp.HTMLClient\bin\Debug\LSClientCodeGeneratorsTask.mcs
+C:\Users\delordsonadmin\Documents\Visual Studio 2013\Projects\BitBucket\IssueManagerApp\IssueManagerApp\IssueManagerApp.HTMLClient\bin\Debug\LSResourceGeneratorsTask.mcs
+C:\Users\delordsonadmin\Documents\Visual Studio 2013\Projects\BitBucket\IssueManagerApp\IssueManagerApp\IssueManagerApp.HTMLClient\bin\Debug\LSClientCodeGeneratorsTask.mcs

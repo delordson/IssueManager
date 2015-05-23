@@ -1,0 +1,211 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" Namespace="ApplicationDataStore" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+  <EntityContainer Name="ApplicationDataStore">
+    <EntitySet Name="Employees" EntityType="ApplicationDataStore.Employee" store:Type="Tables" Schema="dbo" Table="Employees" />
+    <EntitySet Name="FurtherActions" EntityType="ApplicationDataStore.FurtherAction" store:Type="Tables" Schema="dbo" Table="FurtherActions" />
+    <EntitySet Name="IssueComments" EntityType="ApplicationDataStore.IssueComment" store:Type="Tables" Schema="dbo" Table="IssueComments" />
+    <EntitySet Name="Issues" EntityType="ApplicationDataStore.Issue" store:Type="Tables" Schema="dbo" Table="Issues" />
+    <EntitySet Name="IssueTypes" EntityType="ApplicationDataStore.IssueType" store:Type="Tables" Schema="dbo" Table="IssueTypes" />
+    <AssociationSet Name="FurtherAction_Employee" Association="ApplicationDataStore.FurtherAction_Employee">
+      <End Role="Employee" EntitySet="Employees" />
+      <End Role="FurtherAction" EntitySet="FurtherActions" />
+    </AssociationSet>
+    <AssociationSet Name="Issue_Employee" Association="ApplicationDataStore.Issue_Employee">
+      <End Role="Employee" EntitySet="Employees" />
+      <End Role="Issue" EntitySet="Issues" />
+    </AssociationSet>
+    <AssociationSet Name="Issue_Employee1" Association="ApplicationDataStore.Issue_Employee1">
+      <End Role="Employee" EntitySet="Employees" />
+      <End Role="Issue" EntitySet="Issues" />
+    </AssociationSet>
+    <AssociationSet Name="FurtherAction_Issue" Association="ApplicationDataStore.FurtherAction_Issue">
+      <End Role="Issue" EntitySet="Issues" />
+      <End Role="FurtherAction" EntitySet="FurtherActions" />
+    </AssociationSet>
+    <AssociationSet Name="IssueComment_Issue" Association="ApplicationDataStore.IssueComment_Issue">
+      <End Role="Issue" EntitySet="Issues" />
+      <End Role="IssueComment" EntitySet="IssueComments" />
+    </AssociationSet>
+    <AssociationSet Name="IssueType_Issue" Association="ApplicationDataStore.IssueType_Issue">
+      <End Role="IssueType" EntitySet="IssueTypes" />
+      <End Role="Issue" EntitySet="Issues" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Employee">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="UserName" Type="nvarchar" Nullable="false" MaxLength="75">
+      <UniqueIndexAnnotation xmlns="http://schemas.microsoft.com/LightSwitch/2013/edm/annotations" />
+    </Property>
+    <Property Name="LastName" Type="nvarchar" Nullable="false" MaxLength="75" />
+    <Property Name="FirstName" Type="nvarchar" Nullable="false" MaxLength="75" />
+    <Property Name="Email" Type="nvarchar" Nullable="false" MaxLength="255" />
+    <Property Name="Current" Type="bit" Nullable="false" />
+    <Property Name="CreatedBy" Type="nvarchar" MaxLength="255" />
+    <Property Name="Created" Type="datetimeoffset" />
+    <Property Name="ModifiedBy" Type="nvarchar" MaxLength="255" />
+    <Property Name="Modified" Type="datetimeoffset" />
+    <Property Name="RowVersion" Type="rowversion" Nullable="false" StoreGeneratedPattern="Computed" />
+  </EntityType>
+  <EntityType Name="FurtherAction">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="ActionTitle" Type="nvarchar" Nullable="false" MaxLength="250" />
+    <Property Name="ActionOutcome" Type="nvarchar(max)" />
+    <Property Name="DateAssigned" Type="datetime" />
+    <Property Name="TargetCompletionDate" Type="datetime" />
+    <Property Name="PercentCompleted" Type="decimal" Nullable="false" Precision="18" Scale="9" />
+    <Property Name="Priority" Type="nvarchar" Nullable="false" MaxLength="20" />
+    <Property Name="Status" Type="nvarchar" Nullable="false" MaxLength="20" />
+    <Property Name="DateCompleted" Type="datetime" />
+    <Property Name="CreatedBy" Type="nvarchar" MaxLength="255" />
+    <Property Name="Created" Type="datetimeoffset" />
+    <Property Name="ModifiedBy" Type="nvarchar" MaxLength="255" />
+    <Property Name="Modified" Type="datetimeoffset" />
+    <Property Name="RowVersion" Type="rowversion" Nullable="false" StoreGeneratedPattern="Computed" />
+    <Property Name="IssueAction_Employee" Type="int" Nullable="false" />
+    <Property Name="IssueAction_Issue" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="IssueComment">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Comment" Type="nvarchar" Nullable="false" MaxLength="500" />
+    <Property Name="CommentDate" Type="datetime" Nullable="false" />
+    <Property Name="CreatedBy" Type="nvarchar" MaxLength="255" />
+    <Property Name="Created" Type="datetimeoffset" />
+    <Property Name="ModifiedBy" Type="nvarchar" MaxLength="255" />
+    <Property Name="Modified" Type="datetimeoffset" />
+    <Property Name="RowVersion" Type="rowversion" Nullable="false" StoreGeneratedPattern="Computed" />
+    <Property Name="IssueComment_Issue" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Issue">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="IssueTitle" Type="nvarchar" Nullable="false" MaxLength="255" />
+    <Property Name="DateRaised" Type="datetime" Nullable="false" />
+    <Property Name="IssueDescription" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Status" Type="nvarchar" Nullable="false" MaxLength="255" />
+    <Property Name="Priority" Type="nvarchar" Nullable="false" MaxLength="255" />
+    <Property Name="IssueImpactAssessment" Type="nvarchar(max)" />
+    <Property Name="TargetResolutionDate" Type="datetime" Nullable="false" />
+    <Property Name="CorrectiveAction" Type="nvarchar(max)" />
+    <Property Name="CorrectiveActionCompletionTargetDate" Type="datetime" />
+    <Property Name="DateCorrectiveActionCompleted" Type="datetime" />
+    <Property Name="PreventativeAction" Type="nvarchar(max)" />
+    <Property Name="PreventativeActionCompletionTargetDate" Type="datetime" />
+    <Property Name="DatePreventativeActionCompleted" Type="datetime" />
+    <Property Name="DateIssueClosed" Type="datetime" />
+    <Property Name="CreatedBy" Type="nvarchar" MaxLength="255" />
+    <Property Name="Created" Type="datetimeoffset" />
+    <Property Name="ModifiedBy" Type="nvarchar" MaxLength="255" />
+    <Property Name="Modified" Type="datetimeoffset" />
+    <Property Name="RowVersion" Type="rowversion" Nullable="false" StoreGeneratedPattern="Computed" />
+    <Property Name="Issue_Employee" Type="int" />
+    <Property Name="Issue_Employee1" Type="int" Nullable="false" />
+    <Property Name="IssueType_Issue" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="IssueType">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="IssueTypeName" Type="nvarchar" Nullable="false" MaxLength="75" />
+    <Property Name="CreatedBy" Type="nvarchar" MaxLength="255" />
+    <Property Name="Created" Type="datetimeoffset" />
+    <Property Name="ModifiedBy" Type="nvarchar" MaxLength="255" />
+    <Property Name="Modified" Type="datetimeoffset" />
+    <Property Name="RowVersion" Type="rowversion" Nullable="false" StoreGeneratedPattern="Computed" />
+  </EntityType>
+  <Association Name="FurtherAction_Employee">
+    <End Role="Employee" Type="ApplicationDataStore.Employee" Multiplicity="1">
+      <OnDeleteAnnotation Action="Restrict" xmlns="http://schemas.microsoft.com/LightSwitch/2013/edm/annotations" />
+    </End>
+    <End Role="FurtherAction" Type="ApplicationDataStore.FurtherAction" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Employee">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="FurtherAction">
+        <PropertyRef Name="IssueAction_Employee" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Issue_Employee">
+    <End Role="Employee" Type="ApplicationDataStore.Employee" Multiplicity="0..1">
+      <OnDeleteAnnotation Action="Restrict" xmlns="http://schemas.microsoft.com/LightSwitch/2013/edm/annotations" />
+    </End>
+    <End Role="Issue" Type="ApplicationDataStore.Issue" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Employee">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Issue">
+        <PropertyRef Name="Issue_Employee" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Issue_Employee1">
+    <End Role="Employee" Type="ApplicationDataStore.Employee" Multiplicity="1">
+      <OnDeleteAnnotation Action="Restrict" xmlns="http://schemas.microsoft.com/LightSwitch/2013/edm/annotations" />
+    </End>
+    <End Role="Issue" Type="ApplicationDataStore.Issue" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Employee">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Issue">
+        <PropertyRef Name="Issue_Employee1" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FurtherAction_Issue">
+    <End Role="Issue" Type="ApplicationDataStore.Issue" Multiplicity="1">
+      <OnDeleteAnnotation Action="Restrict" xmlns="http://schemas.microsoft.com/LightSwitch/2013/edm/annotations" />
+    </End>
+    <End Role="FurtherAction" Type="ApplicationDataStore.FurtherAction" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Issue">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="FurtherAction">
+        <PropertyRef Name="IssueAction_Issue" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="IssueComment_Issue">
+    <End Role="Issue" Type="ApplicationDataStore.Issue" Multiplicity="1">
+      <OnDeleteAnnotation Action="Restrict" xmlns="http://schemas.microsoft.com/LightSwitch/2013/edm/annotations" />
+    </End>
+    <End Role="IssueComment" Type="ApplicationDataStore.IssueComment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Issue">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="IssueComment">
+        <PropertyRef Name="IssueComment_Issue" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="IssueType_Issue">
+    <End Role="IssueType" Type="ApplicationDataStore.IssueType" Multiplicity="1">
+      <OnDeleteAnnotation Action="Restrict" xmlns="http://schemas.microsoft.com/LightSwitch/2013/edm/annotations" />
+    </End>
+    <End Role="Issue" Type="ApplicationDataStore.Issue" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="IssueType">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Issue">
+        <PropertyRef Name="IssueType_Issue" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

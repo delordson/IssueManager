@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<ModelDocumentManifest xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Documents>
+    <Document FullPath="C:\Users\delordsonadmin\Documents\Visual Studio 2013\Projects\BitBucket\IssueManagerApp\IssueManagerApp\IssueManagerApp.HTMLClient\Properties\Client.lsml" Checksum="A58C0D2B63B5B2B7310D9D6ACF89A4507AA891393C2F3C74F66C7CF4B1147F5F" />
+    <Document FullPath="C:\Users\delordsonadmin\Documents\Visual Studio 2013\Projects\BitBucket\IssueManagerApp\IssueManagerApp\IssueManagerApp.HTMLClient\Properties\Proxies.lsml" Checksum="56BCB7C99C0B1ECB7C0124E27739D0A5AEFCEACAAF750D25FD6E8B4DB31C5224" />
+    <Document FullPath="C:\Users\delordsonadmin\Documents\Visual Studio 2013\Projects\BitBucket\IssueManagerApp\IssueManagerApp\IssueManagerApp.HTMLClient\Screens\AddEditEmployee.lsml" Checksum="9636BCFA2B5CE0BE62E9C33897B59D3191A562CE153F81F8A0FAF03B215E6510" />
+    <Document FullPath="C:\Users\delordsonadmin\Documents\Visual Studio 2013\Projects\BitBucket\IssueManagerApp\IssueManagerApp\IssueManagerApp.HTMLClient\Screens\AddEditFurtherAction.lsml" Checksum="969B8A069CD4157EB0F218B4AA543BE053069CEA31B12586E620508D1BDF71B3" />
+    <Document FullPath="C:\Users\delordsonadmin\Documents\Visual Studio 2013\Projects\BitBucket\IssueManagerApp\IssueManagerApp\IssueManagerApp.HTMLClient\Screens\AddEditIssue.lsml" Checksum="A170247051A9560786967FFD0BA0870C99237171B6656B451083D21652EB72BD" />
+    <Document FullPath="C:\Users\delordsonadmin\Documents\Visual Studio 2013\Projects\BitBucket\IssueManagerApp\IssueManagerApp\IssueManagerApp.HTMLClient\Screens\AddEditIssueComment.lsml" Checksum="EE6A48BFC4D727442EC638A6191E7374E1943CAAAFD49FB8FF5112CD2E4CE281" />
+    <Document FullPath="C:\Users\delordsonadmin\Documents\Visual Studio 2013\Projects\BitBucket\IssueManagerApp\IssueManagerApp\IssueManagerApp.HTMLClient\Screens\AddEditIssueType.lsml" Checksum="8CFE834F6DD953E9E16112270786845FF55F83E207BB3DA900FC9BD1135CC3F6" />
+    <Document FullPath="C:\Users\delordsonadmin\Documents\Visual Studio 2013\Projects\BitBucket\IssueManagerApp\IssueManagerApp\IssueManagerApp.HTMLClient\Screens\BrowseEmployees.lsml" Checksum="504E192A50FC91F028D986C50EB9F28A80889DA84993829281119EA2C9B3A0BE" />
+    <Document FullPath="C:\Users\delordsonadmin\Documents\Visual Studio 2013\Projects\BitBucket\IssueManagerApp\IssueManagerApp\IssueManagerApp.HTMLClient\Screens\BrowseIssues.lsml" Checksum="630AA393565461FEAC67BF42B645ABEF4239A88A880EAE22E0350953E9F13151" />
+    <Document FullPath="C:\Users\delordsonadmin\Documents\Visual Studio 2013\Projects\BitBucket\IssueManagerApp\IssueManagerApp\IssueManagerApp.HTMLClient\Screens\BrowseIssueTypes.lsml" Checksum="325C0BD49D1DF5E9998799597C6EE6BCB557839B7C4A90B1AF37CA648C755C99" />
+    <Document FullPath="C:\Users\delordsonadmin\Documents\Visual Studio 2013\Projects\BitBucket\IssueManagerApp\IssueManagerApp\IssueManagerApp.HTMLClient\Screens\BrowseMyFurtherActions.lsml" Checksum="D169994A44FF2DB107910F9C8C191558071C4CB56EA9FABC6511CF3885D72571" />
+    <Document FullPath="C:\Users\delordsonadmin\Documents\Visual Studio 2013\Projects\BitBucket\IssueManagerApp\IssueManagerApp\IssueManagerApp.HTMLClient\Screens\BrowseMyIssues.lsml" Checksum="7CD3C100B067FE7A440D8F81674DD3D0F20639B5681BAE6080B2133A72543668" />
+    <Document FullPath="C:\Users\delordsonadmin\Documents\Visual Studio 2013\Projects\BitBucket\IssueManagerApp\IssueManagerApp\IssueManagerApp.HTMLClient\Screens\Home.lsml" Checksum="5FFC522748DD2EE3A8DB10738712D4AC4A505B9F296F909C9815D2E94544E385" />
+    <Document FullPath="C:\Users\delordsonadmin\Documents\Visual Studio 2013\Projects\BitBucket\IssueManagerApp\IssueManagerApp\IssueManagerApp.HTMLClient\Screens\MobileHome.lsml" Checksum="1A83D80ED298A5CB3993CB1B4F037436A1AA0B143628F36C8FBF3D8EFE9576AF" />
+  </Documents>
+</ModelDocumentManifest>

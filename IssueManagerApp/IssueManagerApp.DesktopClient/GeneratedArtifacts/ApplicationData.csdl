@@ -1,0 +1,218 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" Namespace="LightSwitchApplication" Alias="Self" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+  <EntityType Name="Employee">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Edm.Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UserName" Type="Edm.String" Nullable="false" MaxLength="75" />
+    <Property Name="LastName" Type="Edm.String" Nullable="false" MaxLength="75" />
+    <Property Name="FirstName" Type="Edm.String" Nullable="false" MaxLength="75" />
+    <Property Name="Email" Type="Edm.String" Nullable="false" MaxLength="255" />
+    <Property Name="Current" Type="Edm.Boolean" Nullable="false" />
+    <Property Name="CreatedBy" Type="Edm.String" MaxLength="255" />
+    <Property Name="Created" Type="Edm.DateTimeOffset" />
+    <Property Name="ModifiedBy" Type="Edm.String" MaxLength="255" />
+    <Property Name="Modified" Type="Edm.DateTimeOffset" />
+    <Property Name="RowVersion" Type="Edm.Binary" Nullable="false" ConcurrencyMode="Fixed" annotation:StoreGeneratedPattern="Computed" />
+    <NavigationProperty Name="FurtherActions" Relationship="LightSwitchApplication.FurtherAction_Employee" ToRole="FurtherAction" FromRole="Employee" />
+    <NavigationProperty Name="IssueAssignments" Relationship="LightSwitchApplication.Issue_Employee" ToRole="Issue" FromRole="Employee" />
+    <NavigationProperty Name="OwnedIssues" Relationship="LightSwitchApplication.Issue_Employee1" ToRole="Issue" FromRole="Employee" />
+  </EntityType>
+  <EntityType Name="FurtherAction">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Edm.Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="IssueAction_Issue" Type="Edm.Int32" Nullable="false" />
+    <Property Name="ActionTitle" Type="Edm.String" Nullable="false" MaxLength="250" />
+    <Property Name="IssueAction_Employee" Type="Edm.Int32" Nullable="false" />
+    <Property Name="ActionOutcome" Type="Edm.String" MaxLength="Max" />
+    <Property Name="DateAssigned" Type="Edm.DateTime" />
+    <Property Name="TargetCompletionDate" Type="Edm.DateTime" />
+    <Property Name="PercentCompleted" Type="Edm.Decimal" Nullable="false" Precision="18" Scale="9" />
+    <Property Name="Priority" Type="Edm.String" Nullable="false" MaxLength="20" />
+    <Property Name="Status" Type="Edm.String" Nullable="false" MaxLength="20" />
+    <Property Name="DateCompleted" Type="Edm.DateTime" />
+    <Property Name="CreatedBy" Type="Edm.String" MaxLength="255" />
+    <Property Name="Created" Type="Edm.DateTimeOffset" />
+    <Property Name="ModifiedBy" Type="Edm.String" MaxLength="255" />
+    <Property Name="Modified" Type="Edm.DateTimeOffset" />
+    <Property Name="RowVersion" Type="Edm.Binary" Nullable="false" ConcurrencyMode="Fixed" annotation:StoreGeneratedPattern="Computed" />
+    <NavigationProperty Name="Issue" Relationship="LightSwitchApplication.FurtherAction_Issue" ToRole="Issue" FromRole="FurtherAction" />
+    <NavigationProperty Name="AssignedTo" Relationship="LightSwitchApplication.FurtherAction_Employee" ToRole="Employee" FromRole="FurtherAction" />
+  </EntityType>
+  <EntityType Name="IssueComment">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Edm.Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Comment" Type="Edm.String" Nullable="false" MaxLength="500" />
+    <Property Name="CommentDate" Type="Edm.DateTime" Nullable="false" />
+    <Property Name="IssueComment_Issue" Type="Edm.Int32" Nullable="false" />
+    <Property Name="CreatedBy" Type="Edm.String" MaxLength="255" />
+    <Property Name="Created" Type="Edm.DateTimeOffset" />
+    <Property Name="ModifiedBy" Type="Edm.String" MaxLength="255" />
+    <Property Name="Modified" Type="Edm.DateTimeOffset" />
+    <Property Name="RowVersion" Type="Edm.Binary" Nullable="false" ConcurrencyMode="Fixed" annotation:StoreGeneratedPattern="Computed" />
+    <NavigationProperty Name="Issue" Relationship="LightSwitchApplication.IssueComment_Issue" ToRole="Issue" FromRole="IssueComment" />
+  </EntityType>
+  <EntityType Name="Issue">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Edm.Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="IssueTitle" Type="Edm.String" Nullable="false" MaxLength="255" />
+    <Property Name="DateRaised" Type="Edm.DateTime" Nullable="false" />
+    <Property Name="IssueDescription" Type="Edm.String" Nullable="false" MaxLength="Max" />
+    <Property Name="Issue_Employee1" Type="Edm.Int32" Nullable="false" />
+    <Property Name="Status" Type="Edm.String" Nullable="false" MaxLength="255" />
+    <Property Name="Priority" Type="Edm.String" Nullable="false" MaxLength="255" />
+    <Property Name="IssueType_Issue" Type="Edm.Int32" Nullable="false" />
+    <Property Name="Issue_Employee" Type="Edm.Int32" />
+    <Property Name="IssueImpactAssessment" Type="Edm.String" MaxLength="Max" />
+    <Property Name="TargetResolutionDate" Type="Edm.DateTime" Nullable="false" />
+    <Property Name="CorrectiveAction" Type="Edm.String" MaxLength="Max" />
+    <Property Name="CorrectiveActionCompletionTargetDate" Type="Edm.DateTime" />
+    <Property Name="DateCorrectiveActionCompleted" Type="Edm.DateTime" />
+    <Property Name="PreventativeAction" Type="Edm.String" MaxLength="Max" />
+    <Property Name="PreventativeActionCompletionTargetDate" Type="Edm.DateTime" />
+    <Property Name="DatePreventativeActionCompleted" Type="Edm.DateTime" />
+    <Property Name="DateIssueClosed" Type="Edm.DateTime" />
+    <Property Name="CreatedBy" Type="Edm.String" MaxLength="255" />
+    <Property Name="Created" Type="Edm.DateTimeOffset" />
+    <Property Name="ModifiedBy" Type="Edm.String" MaxLength="255" />
+    <Property Name="Modified" Type="Edm.DateTimeOffset" />
+    <Property Name="RowVersion" Type="Edm.Binary" Nullable="false" ConcurrencyMode="Fixed" annotation:StoreGeneratedPattern="Computed" />
+    <NavigationProperty Name="IssueOwner" Relationship="LightSwitchApplication.Issue_Employee1" ToRole="Employee" FromRole="Issue" />
+    <NavigationProperty Name="IssueType" Relationship="LightSwitchApplication.IssueType_Issue" ToRole="IssueType" FromRole="Issue" />
+    <NavigationProperty Name="AssignedTo" Relationship="LightSwitchApplication.Issue_Employee" ToRole="Employee" FromRole="Issue" />
+    <NavigationProperty Name="FurtherActions" Relationship="LightSwitchApplication.FurtherAction_Issue" ToRole="FurtherAction" FromRole="Issue" />
+    <NavigationProperty Name="IssueComments" Relationship="LightSwitchApplication.IssueComment_Issue" ToRole="IssueComment" FromRole="Issue" />
+  </EntityType>
+  <EntityType Name="IssueType">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Edm.Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="IssueTypeName" Type="Edm.String" Nullable="false" MaxLength="75" />
+    <Property Name="CreatedBy" Type="Edm.String" MaxLength="255" />
+    <Property Name="Created" Type="Edm.DateTimeOffset" />
+    <Property Name="ModifiedBy" Type="Edm.String" MaxLength="255" />
+    <Property Name="Modified" Type="Edm.DateTimeOffset" />
+    <Property Name="RowVersion" Type="Edm.Binary" Nullable="false" ConcurrencyMode="Fixed" annotation:StoreGeneratedPattern="Computed" />
+    <NavigationProperty Name="Issues" Relationship="LightSwitchApplication.IssueType_Issue" ToRole="Issue" FromRole="IssueType" />
+  </EntityType>
+  <Association Name="FurtherAction_Employee">
+    <End Role="Employee" Type="LightSwitchApplication.Employee" Multiplicity="1" />
+    <End Role="FurtherAction" Type="LightSwitchApplication.FurtherAction" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Employee">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="FurtherAction">
+        <PropertyRef Name="IssueAction_Employee" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Issue_Employee">
+    <End Role="Employee" Type="LightSwitchApplication.Employee" Multiplicity="0..1" />
+    <End Role="Issue" Type="LightSwitchApplication.Issue" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Employee">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Issue">
+        <PropertyRef Name="Issue_Employee" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Issue_Employee1">
+    <End Role="Employee" Type="LightSwitchApplication.Employee" Multiplicity="1" />
+    <End Role="Issue" Type="LightSwitchApplication.Issue" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Employee">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Issue">
+        <PropertyRef Name="Issue_Employee1" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FurtherAction_Issue">
+    <End Role="Issue" Type="LightSwitchApplication.Issue" Multiplicity="1" />
+    <End Role="FurtherAction" Type="LightSwitchApplication.FurtherAction" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Issue">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="FurtherAction">
+        <PropertyRef Name="IssueAction_Issue" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="IssueComment_Issue">
+    <End Role="Issue" Type="LightSwitchApplication.Issue" Multiplicity="1" />
+    <End Role="IssueComment" Type="LightSwitchApplication.IssueComment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Issue">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="IssueComment">
+        <PropertyRef Name="IssueComment_Issue" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="IssueType_Issue">
+    <End Role="IssueType" Type="LightSwitchApplication.IssueType" Multiplicity="1" />
+    <End Role="Issue" Type="LightSwitchApplication.Issue" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="IssueType">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Issue">
+        <PropertyRef Name="IssueType_Issue" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="ApplicationData" m:IsDefaultEntityContainer="true">
+    <EntitySet Name="Employees" EntityType="LightSwitchApplication.Employee" />
+    <EntitySet Name="FurtherActions" EntityType="LightSwitchApplication.FurtherAction" />
+    <EntitySet Name="IssueComments" EntityType="LightSwitchApplication.IssueComment" />
+    <EntitySet Name="Issues" EntityType="LightSwitchApplication.Issue" />
+    <EntitySet Name="IssueTypes" EntityType="LightSwitchApplication.IssueType" />
+    <AssociationSet Name="FurtherAction_Employee" Association="LightSwitchApplication.FurtherAction_Employee">
+      <End Role="Employee" EntitySet="Employees" />
+      <End Role="FurtherAction" EntitySet="FurtherActions" />
+    </AssociationSet>
+    <AssociationSet Name="Issue_Employee" Association="LightSwitchApplication.Issue_Employee">
+      <End Role="Employee" EntitySet="Employees" />
+      <End Role="Issue" EntitySet="Issues" />
+    </AssociationSet>
+    <AssociationSet Name="Issue_Employee1" Association="LightSwitchApplication.Issue_Employee1">
+      <End Role="Employee" EntitySet="Employees" />
+      <End Role="Issue" EntitySet="Issues" />
+    </AssociationSet>
+    <AssociationSet Name="FurtherAction_Issue" Association="LightSwitchApplication.FurtherAction_Issue">
+      <End Role="Issue" EntitySet="Issues" />
+      <End Role="FurtherAction" EntitySet="FurtherActions" />
+    </AssociationSet>
+    <AssociationSet Name="IssueComment_Issue" Association="LightSwitchApplication.IssueComment_Issue">
+      <End Role="Issue" EntitySet="Issues" />
+      <End Role="IssueComment" EntitySet="IssueComments" />
+    </AssociationSet>
+    <AssociationSet Name="IssueType_Issue" Association="LightSwitchApplication.IssueType_Issue">
+      <End Role="IssueType" EntitySet="IssueTypes" />
+      <End Role="Issue" EntitySet="Issues" />
+    </AssociationSet>
+    <FunctionImport Name="MyFurtherActions" ReturnType="Collection(LightSwitchApplication.FurtherAction)" EntitySet="FurtherActions" m:HttpMethod="GET" />
+    <FunctionImport Name="InProgressIssues" ReturnType="Collection(LightSwitchApplication.Issue)" EntitySet="Issues" m:HttpMethod="GET" />
+    <FunctionImport Name="IssuesDueToday" ReturnType="Collection(LightSwitchApplication.Issue)" EntitySet="Issues" m:HttpMethod="GET" />
+    <FunctionImport Name="MyIssues" ReturnType="Collection(LightSwitchApplication.Issue)" EntitySet="Issues" m:HttpMethod="GET" />
+    <FunctionImport Name="OverDueIssues" ReturnType="Collection(LightSwitchApplication.Issue)" EntitySet="Issues" m:HttpMethod="GET" />
+    <FunctionImport Name="UnassignedIssues" ReturnType="Collection(LightSwitchApplication.Issue)" EntitySet="Issues" m:HttpMethod="GET" />
+    <FunctionImport Name="Microsoft_LightSwitch_GetCanInformation" ReturnType="Edm.String" m:HttpMethod="GET">
+      <Parameter Name="dataServiceMembers" Type="Edm.String" Mode="In" />
+    </FunctionImport>
+  </EntityContainer>
+</Schema>

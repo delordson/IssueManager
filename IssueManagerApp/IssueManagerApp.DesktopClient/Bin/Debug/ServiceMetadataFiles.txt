@@ -1,0 +1,11 @@
+IssueManagerApp.Server.Properties.Service.lsml
+IssueManagerApp.Server.Properties.DataSources.ApplicationData.lsml
+IssueManagerApp.Server.DataSources.ApplicationData.Issues.lsml
+IssueManagerApp.Server.DataSources.ApplicationData.Employees.lsml
+IssueManagerApp.Server.DataSources.ApplicationData.FurtherActions.lsml
+IssueManagerApp.Server.DataSources.ApplicationData.IssueTypes.lsml
+IssueManagerApp.Server.DataSources.ApplicationData.IssueComments.lsml
+IssueManagerApp.Server.DataSources.ApplicationData.OverdueIssues.lsml
+IssueManagerApp.Server.DataSources.ApplicationData.IssuesDueToday.lsml
+IssueManagerApp.Server.DataSources.ApplicationData.InProgressIssues.lsml
+IssueManagerApp.Server.DataSources.ApplicationData.UnassignedIssues.lsml

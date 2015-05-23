@@ -1,0 +1,101 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+  <EntityContainerMapping CdmEntityContainer="ApplicationData" StorageEntityContainer="ApplicationDataStore">
+    <EntitySetMapping Name="Employees">
+      <EntityTypeMapping TypeName="IsTypeOf(LightSwitchApplication.Employee)">
+        <MappingFragment StoreEntitySet="Employees">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Current" ColumnName="Current" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="Created" ColumnName="Created" />
+          <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+          <ScalarProperty Name="Modified" ColumnName="Modified" />
+          <ScalarProperty Name="RowVersion" ColumnName="RowVersion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="FurtherActions">
+      <EntityTypeMapping TypeName="IsTypeOf(LightSwitchApplication.FurtherAction)">
+        <MappingFragment StoreEntitySet="FurtherActions">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="IssueAction_Issue" ColumnName="IssueAction_Issue" />
+          <ScalarProperty Name="ActionTitle" ColumnName="ActionTitle" />
+          <ScalarProperty Name="IssueAction_Employee" ColumnName="IssueAction_Employee" />
+          <ScalarProperty Name="ActionOutcome" ColumnName="ActionOutcome" />
+          <ScalarProperty Name="DateAssigned" ColumnName="DateAssigned" />
+          <ScalarProperty Name="TargetCompletionDate" ColumnName="TargetCompletionDate" />
+          <ScalarProperty Name="PercentCompleted" ColumnName="PercentCompleted" />
+          <ScalarProperty Name="Priority" ColumnName="Priority" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="DateCompleted" ColumnName="DateCompleted" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="Created" ColumnName="Created" />
+          <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+          <ScalarProperty Name="Modified" ColumnName="Modified" />
+          <ScalarProperty Name="RowVersion" ColumnName="RowVersion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="IssueComments">
+      <EntityTypeMapping TypeName="IsTypeOf(LightSwitchApplication.IssueComment)">
+        <MappingFragment StoreEntitySet="IssueComments">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Comment" ColumnName="Comment" />
+          <ScalarProperty Name="CommentDate" ColumnName="CommentDate" />
+          <ScalarProperty Name="IssueComment_Issue" ColumnName="IssueComment_Issue" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="Created" ColumnName="Created" />
+          <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+          <ScalarProperty Name="Modified" ColumnName="Modified" />
+          <ScalarProperty Name="RowVersion" ColumnName="RowVersion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Issues">
+      <EntityTypeMapping TypeName="IsTypeOf(LightSwitchApplication.Issue)">
+        <MappingFragment StoreEntitySet="Issues">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="IssueTitle" ColumnName="IssueTitle" />
+          <ScalarProperty Name="DateRaised" ColumnName="DateRaised" />
+          <ScalarProperty Name="IssueDescription" ColumnName="IssueDescription" />
+          <ScalarProperty Name="Issue_Employee1" ColumnName="Issue_Employee1" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="Priority" ColumnName="Priority" />
+          <ScalarProperty Name="IssueType_Issue" ColumnName="IssueType_Issue" />
+          <ScalarProperty Name="Issue_Employee" ColumnName="Issue_Employee" />
+          <ScalarProperty Name="IssueImpactAssessment" ColumnName="IssueImpactAssessment" />
+          <ScalarProperty Name="TargetResolutionDate" ColumnName="TargetResolutionDate" />
+          <ScalarProperty Name="CorrectiveAction" ColumnName="CorrectiveAction" />
+          <ScalarProperty Name="CorrectiveActionCompletionTargetDate" ColumnName="CorrectiveActionCompletionTargetDate" />
+          <ScalarProperty Name="DateCorrectiveActionCompleted" ColumnName="DateCorrectiveActionCompleted" />
+          <ScalarProperty Name="PreventativeAction" ColumnName="PreventativeAction" />
+          <ScalarProperty Name="PreventativeActionCompletionTargetDate" ColumnName="PreventativeActionCompletionTargetDate" />
+          <ScalarProperty Name="DatePreventativeActionCompleted" ColumnName="DatePreventativeActionCompleted" />
+          <ScalarProperty Name="DateIssueClosed" ColumnName="DateIssueClosed" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="Created" ColumnName="Created" />
+          <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+          <ScalarProperty Name="Modified" ColumnName="Modified" />
+          <ScalarProperty Name="RowVersion" ColumnName="RowVersion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="IssueTypes">
+      <EntityTypeMapping TypeName="IsTypeOf(LightSwitchApplication.IssueType)">
+        <MappingFragment StoreEntitySet="IssueTypes">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="IssueTypeName" ColumnName="IssueTypeName" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="Created" ColumnName="Created" />
+          <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+          <ScalarProperty Name="Modified" ColumnName="Modified" />
+          <ScalarProperty Name="RowVersion" ColumnName="RowVersion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
